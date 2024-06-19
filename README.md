@@ -4,6 +4,11 @@
 # milRex
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/datapumpernickel/milRex/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/datapumpernickel/milRex/actions/workflows/R-CMD-check.yaml)
+
+[![codecov](https://codecov.io/gh/datapumpernickel/milRex/graph/badge.svg?token=08ULI3CEWH)](https://codecov.io/gh/datapumpernickel/milRex)
+
 <!-- badges: end -->
 
 The goal of milRex is to make it easy to query military expenditure data

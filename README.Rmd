@@ -16,6 +16,11 @@ knitr::opts_chunk$set(
 # milRex
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/datapumpernickel/milRex/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/datapumpernickel/milRex/actions/workflows/R-CMD-check.yaml)
+
+[![codecov](https://codecov.io/gh/datapumpernickel/milRex/graph/badge.svg?token=08ULI3CEWH)](https://codecov.io/gh/datapumpernickel/milRex)
+
+
 <!-- badges: end -->
 
 The goal of milRex is to make it easy to query military expenditure data from 
@@ -40,7 +45,7 @@ devtools::install_github("datapumpernickel/milRex")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+```{r example, eval = F}
 library(milRex)
 data <- mr_get_data()
 ```
