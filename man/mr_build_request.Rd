@@ -4,10 +4,7 @@
 \alias{mr_build_request}
 \title{Build a request for SIPRI data}
 \usage{
-mr_build_request(verbose)
-}
-\arguments{
-\item{verbose}{Logical. If \code{TRUE}, enables verbose output for the request.}
+mr_build_request()
 }
 \value{
 An \code{httr2} request object configured with the specified parameters.

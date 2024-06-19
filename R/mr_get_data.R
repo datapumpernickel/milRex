@@ -13,10 +13,15 @@ mr_get_data <- function(indicator = "constantUSD",
                         footnotes = FALSE,
                         cache = TRUE){
 
-  rlang::check_required(indicator)
-  rlang::check_required(cache)
-  rlang::check_required(verbose)
-  rlang::check_required(footnotes)
+  if(!rlang::is_bool(verbose)){
+    rlang::abort(message = "verbose must be a logical value")
+  }
+  if(!rlang::is_bool(cache)){
+    rlang::abort(message = "cache must be a logical value")
+  }
+  if(!rlang::is_bool(footnotes)){
+    rlang::abort(message = "footnotes must be a logical value")
+  }
 
   rlang::arg_match(
     indicator,
@@ -34,7 +39,7 @@ mr_get_data <- function(indicator = "constantUSD",
     multiple = TRUE
   )
 
-  req <- mr_build_request(verbose)
+  req <- mr_build_request()
 
   if(cache){
     resp <- mr_perform_request_cached(req)

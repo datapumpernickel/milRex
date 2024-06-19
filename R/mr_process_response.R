@@ -36,7 +36,7 @@ mr_process_response <- function(resp, footnotes, indicator,verbose){
         footnotes = footnotes,
         .progress = verbose
       ) |>
-        dplyr::select(any_of(c("sheet",
+        dplyr::select(dplyr::any_of(c("sheet",
                                "country",
                                "region",
                                "year",
@@ -53,7 +53,8 @@ mr_process_response <- function(resp, footnotes, indicator,verbose){
 
 
 mr_process_xlsx <- function(file_path, footnotes, indicator,sheet_name, unit, skip){
-  Country <-  content <- content2 <- country <- head <- value <- year <- NULL
+  Country <-  content <- content2 <- country <- NULL
+  head <- value <- year <- region <- NULL
 
 
 
