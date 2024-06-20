@@ -19,15 +19,15 @@
     <loc>https://datapumpernickel.github.io/milRex/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://datapumpernickel.github.io/milRex/reference/mr_build_request.html</loc>
+    <loc>https://datapumpernickel.github.io/milRex/reference/sipri_build_request.html</loc>
   </url>
   <url>
-    <loc>https://datapumpernickel.github.io/milRex/reference/mr_get_data.html</loc>
+    <loc>https://datapumpernickel.github.io/milRex/reference/sipri_get_data.html</loc>
   </url>
   <url>
-    <loc>https://datapumpernickel.github.io/milRex/reference/mr_get_footnotes.html</loc>
+    <loc>https://datapumpernickel.github.io/milRex/reference/sipri_get_footnotes.html</loc>
   </url>
   <url>
-    <loc>https://datapumpernickel.github.io/milRex/reference/mr_perform_request.html</loc>
+    <loc>https://datapumpernickel.github.io/milRex/reference/sipri_perform_request.html</loc>
   </url>
 </urlset>
