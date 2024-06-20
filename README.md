@@ -48,6 +48,7 @@ The available indicators are:
 | Local currency financial years | currencyFY     |
 | Local currency calendar years  | currencyCY     |
 | Per capita                     | perCapita      |
+| all of the above               | all            |
 
 ## Sources and Methods
 

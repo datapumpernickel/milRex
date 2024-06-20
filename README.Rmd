@@ -61,7 +61,9 @@ dplyr::tribble(
   "Regional totals", 2, 13,'regionalTotals',
   "Local currency financial years", 2, 7,'currencyFY',
   "Local currency calendar years", 2, 6,'currencyCY',
-  "Per capita", 2, 6,'perCapita') |> 
+  "Per capita", 2, 6,'perCapita',
+  "all of the above", 2, 6,'all'
+  ) |> 
   dplyr::select(sheet_name, indicator) |> 
   knitr::kable()
 ```
