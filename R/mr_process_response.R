@@ -1,5 +1,5 @@
 
-mr_process_response <- function(resp, footnotes, indicator,verbose){
+sipri_process_response <- function(resp, footnotes, indicator,verbose){
   .env <- NULL
   content <- resp |>
     httr2::resp_body_json() |>
@@ -31,7 +31,7 @@ mr_process_response <- function(resp, footnotes, indicator,verbose){
     suppressMessages({
       data <- purrr::pmap_dfr(
         data_to_be_extracted,
-        mr_process_xlsx,
+        sipri_process_xlsx,
         file_path = file_path,
         footnotes = footnotes,
         .progress = verbose
@@ -52,7 +52,7 @@ mr_process_response <- function(resp, footnotes, indicator,verbose){
 }
 
 
-mr_process_xlsx <- function(file_path, footnotes, indicator,sheet_name, unit, skip){
+sipri_process_xlsx <- function(file_path, footnotes, indicator,sheet_name, unit, skip){
   Country <-  content <- content2 <- country <- NULL
   head <- value <- year <- region <- NULL
 
@@ -102,7 +102,7 @@ mr_process_xlsx <- function(file_path, footnotes, indicator,sheet_name, unit, sk
 
     if(footnotes){
       sheet <- sheet |>
-        dplyr::left_join(mr_get_footnotes(file_path, notes))
+        dplyr::left_join(sipri_get_footnotes(file_path, notes))
     }
 
     sheet <- sheet |>

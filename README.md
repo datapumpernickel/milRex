@@ -30,7 +30,7 @@ This would query all the data, for military expenditure in constant USD.
 
 ``` r
 library(milRex)
-data <- mr_get_data(indicator = "constantUSD", 
+data <- sipri_get_data(indicator = "constantUSD", 
                     cache = TRUE,
                     verbose = FALSE,
                     footnotes = FALSE)

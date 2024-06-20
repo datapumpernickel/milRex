@@ -15,18 +15,18 @@
                               max_age = max_age,
                               max_n = max_n)
 
-  mr_perform_request_cached <- memoise::memoise(mr_perform_request,
+  sipri_perform_request_cached <- memoise::memoise(sipri_perform_request,
                                                cache = cache)
 
-  assign(x = "mr_perform_request_cached",
-         value = mr_perform_request_cached,
+  assign(x = "sipri_perform_request_cached",
+         value = sipri_perform_request_cached,
          envir = rlang::ns_env("milRex"))
 
-  mr_process_response_cached <- memoise::memoise(mr_process_response,
+  sipri_process_response_cached <- memoise::memoise(sipri_process_response,
                                                 cache = cache)
 
-  assign(x = "mr_process_response_cached",
-         value = mr_process_response_cached,
+  assign(x = "sipri_process_response_cached",
+         value = sipri_process_response_cached,
          envir = rlang::ns_env("milRex"))
 
   assign(x = "cache",

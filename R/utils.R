@@ -6,7 +6,7 @@
 #' @param notes A character vector of notes to extract and format.
 #' @return A data frame with two columns: `notes`, containing the original notes, and `footnote`, containing the formatted footnotes.
 #' @keywords internal
-mr_get_footnotes <- function(file_path, notes){
+sipri_get_footnotes <- function(file_path, notes){
   content <- content2 <- NULL
   footnotes <- readxl::read_xlsx(file_path,
                                  sheet = 'Footnotes') |>

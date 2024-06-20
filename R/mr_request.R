@@ -4,7 +4,7 @@
 #'
 #' @return An `httr2` request object configured with the specified parameters.
 #' @keywords internal
-mr_build_request <- function(){
+sipri_build_request <- function(){
 
   req <- httr2::request("https://backend.sipri.org/api/p/excel-export") |>
     httr2::req_headers("Content-Type" = "application/json")|>
@@ -17,10 +17,10 @@ mr_build_request <- function(){
 #'
 #' Executes an HTTP request and retrieves the response.
 #'
-#' @param req An `httr2` request object created by `mr_build_request`.
+#' @param req An `httr2` request object created by `sipri_build_request`.
 #' @return An `httr2` response object containing the server's response.
 #' @keywords internal
-mr_perform_request<- function(req){
+sipri_perform_request<- function(req){
   resp <- httr2::req_perform(req)
   return(resp)
 }

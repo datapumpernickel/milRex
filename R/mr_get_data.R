@@ -8,7 +8,7 @@
 #'
 #' @return A tibble.
 #' @export
-mr_get_data <- function(indicator = "constantUSD",
+sipri_get_data <- function(indicator = "constantUSD",
                         verbose = FALSE,
                         footnotes = FALSE,
                         cache = TRUE){
@@ -39,15 +39,15 @@ mr_get_data <- function(indicator = "constantUSD",
     multiple = TRUE
   )
 
-  req <- mr_build_request()
+  req <- sipri_build_request()
 
   if(cache){
-    resp <- mr_perform_request_cached(req)
-    data <- mr_process_response_cached(resp, footnotes,indicator,verbose)
+    resp <- sipri_perform_request_cached(req)
+    data <- sipri_process_response_cached(resp, footnotes,indicator,verbose)
 
   } else {
-    resp <- mr_perform_request(req)
-    data <- mr_process_response(resp, footnotes,indicator,verbose)
+    resp <- sipri_perform_request(req)
+    data <- sipri_process_response(resp, footnotes,indicator,verbose)
   }
 
   return(data)

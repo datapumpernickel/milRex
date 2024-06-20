@@ -1,7 +1,7 @@
 
-testthat::test_that("mr_process_response is cached", {
+testthat::test_that("sipri_process_response is cached", {
   testthat::expect_true(memoise::is.memoised(
-    milRex:::mr_process_response_cached))
+    milRex:::sipri_process_response_cached))
   testthat::expect_equal(milRex:::cache$info()$max_size, 1073741824)
   testthat::expect_equal(milRex:::cache$info()$max_age, Inf)
   testthat::expect_equal(milRex:::cache$info()$max_n, Inf)
