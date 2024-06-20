@@ -2,3 +2,7 @@ url: https://datapumpernickel.github.io/milRex/
 template:
   bootstrap: 5
 
+home:
+  links:
+  - text: View source code
+    href: https://github.com/datapumpernickel/milRex
