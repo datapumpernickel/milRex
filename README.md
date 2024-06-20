@@ -11,9 +11,8 @@
 <!-- badges: end -->
 
 The goal of milRex is to make it easy to query military expenditure data
-from SIPRI.
-
-expenditure are queried.
+from the Stockholm International Peace Research Institute. They offer
+the most up-to date, openly available data on military expenditure.
 
 ## Installation
 
