@@ -55,14 +55,9 @@
 </h1></div>
 <!-- badges: start -->
 
-
 <!-- badges: end -->
 <p>The goal of milRex is to make it easy to query military expenditure data from SIPRI.</p>
-</div>
-<div class="section level1">
-<h1 id="id_-under-construction-">🚧 Under construction 🚧<a class="anchor" aria-label="anchor" href="#id_-under-construction-"></a>
-</h1>
-<p>Currently this package is under construction. Only constant USD of military expenditure are queried.</p>
+<p>expenditure are queried.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -72,15 +67,81 @@
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"datapumpernickel/milRex"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="getting-military-expenditure-in-constant-usd">Getting Military Expenditure in constant USD<a class="anchor" aria-label="anchor" href="#getting-military-expenditure-in-constant-usd"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<p>This would query all the data, for military expenditure in constant USD.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://datapumpernickel.github.io/milRex/">milRex</a></span><span class="op">)</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mr_get_data.html">mr_get_data</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mr_get_data.html">mr_get_data</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="st">"constantUSD"</span>, </span>
+<span>                    cache <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                    verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                    footnotes <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<p>The available indicators are:</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">sheet_name</th>
+<th align="left">indicator</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Constant (2022) US$</td>
+<td align="left">constantUSD</td>
+</tr>
+<tr class="even">
+<td align="left">Current US$</td>
+<td align="left">currentUSD</td>
+</tr>
+<tr class="odd">
+<td align="left">Share of GDP</td>
+<td align="left">shareOfGDP</td>
+</tr>
+<tr class="even">
+<td align="left">Share of Govt. spending</td>
+<td align="left">shareGovt</td>
+</tr>
+<tr class="odd">
+<td align="left">Regional totals</td>
+<td align="left">regionalTotals</td>
+</tr>
+<tr class="even">
+<td align="left">Local currency financial years</td>
+<td align="left">currencyFY</td>
+</tr>
+<tr class="odd">
+<td align="left">Local currency calendar years</td>
+<td align="left">currencyCY</td>
+</tr>
+<tr class="even">
+<td align="left">Per capita</td>
+<td align="left">perCapita</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level2">
+<h2 id="sources-and-methods">Sources and Methods<a class="anchor" aria-label="anchor" href="#sources-and-methods"></a>
+</h2>
+<p>Military Expenditure is a concept that is difficult to measure adequately in a comparative manner across the globe. The dataset by SIPRI is the best effort that exists today, using only open sources. Nonetheless, there is limitation to their data. I <strong>highly</strong> encourage anyone who wants to use this dataset, to read their Sources and Methods section here:</p>
+<p><a href="https://www.sipri.org/databases/milex/sources-and-methods" class="external-link uri">https://www.sipri.org/databases/milex/sources-and-methods</a></p>
+</div>
+<div class="section level2">
+<h2 id="estimates-and-uncertain-data">Estimates and uncertain data<a class="anchor" aria-label="anchor" href="#estimates-and-uncertain-data"></a>
+</h2>
+<p>Some of the SIPRI estimates reported in their dataset are marked as uncertain or estimations (e.g. all the data for China). These cells are marked in blue or red in the resulting excel-file. Unfortunately, color coding is not machine-readable, hence this information cannot be translated into data.frames in R and is missing. Please be aware of this limitation.</p>
+</div>
+<div class="section level2">
+<h2 id="copyright">Copyright<a class="anchor" aria-label="anchor" href="#copyright"></a>
+</h2>
+<p>The Stockholm International Peace Research Institute limits the copying and redistribution of its data to the following two use-cases:</p>
+<ul>
+<li>the excerption of SIPRI copyrighted material for such purposes as criticism, comment, news reporting, teaching, scholarship or research in which the use is for non-commercial purposes</li>
+<li>the reproduction of less than 10 per cent of a published data set.</li>
+</ul>
+<p>Hence, this package does <strong>not</strong> contain any SIPRI data itself. It merely automatizes the access through the website, by making the corresponding POST request and cleaning the resulting xlsx file into tidy formats.</p>
+<p>Please make sure to cite SIPRI when using their data with:</p>
+<p><em>SIPRI Military Expenditure Database 2024, <a href="https://www.sipri.org/databases/milex" class="external-link uri">https://www.sipri.org/databases/milex</a></em></p>
 </div>
 </div>
-
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
