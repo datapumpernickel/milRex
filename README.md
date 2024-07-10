@@ -24,7 +24,7 @@ up-to date, openly available data on military expenditure.
   Methods section on their website concerning limitations linked below
   ⬇️.
 
-## Installation
+## ⚙️ Installation
 
 You can install the development version of milRex from
 [GitHub](https://github.com/) with:
@@ -34,7 +34,7 @@ You can install the development version of milRex from
 devtools::install_github("datapumpernickel/milRex")
 ```
 
-## Getting Military Expenditure in constant USD
+## 💲🏛️ Usage
 
 This would query all the data, for military expenditure in constant USD.
 
@@ -46,7 +46,8 @@ data <- sipri_get_data(indicator = "constantUSD",
                     footnotes = FALSE)
 ```
 
-The available indicators are:
+The available **indicators** are:
+<center>
 
 | sheet_name                     | indicator      |
 |:-------------------------------|:---------------|
@@ -60,7 +61,9 @@ The available indicators are:
 | Per capita                     | perCapita      |
 | all of the above               | all            |
 
-## Sources and Methods
+</center>
+
+## 📝 Sources and Methods
 
 Military Expenditure is a concept that is difficult to measure
 adequately in a comparative manner across the globe. The dataset by
@@ -71,7 +74,7 @@ section here:
 
 <https://www.sipri.org/databases/milex/sources-and-methods>
 
-## Estimates and uncertain data
+## 🔎 Estimates and uncertain data
 
 Some of the SIPRI estimates reported in their dataset are marked as
 uncertain or estimations (e.g. all the data for China). These cells are
@@ -80,7 +83,7 @@ coding is not machine-readable, hence this information cannot be
 translated into data.frames in R and is missing. Please be aware of this
 limitation.
 
-## Copyright
+## 🔒 Copyright
 
 The Stockholm International Peace Research Institute limits the copying
 and redistribution of its data to the following two use-cases:
@@ -95,7 +98,7 @@ merely automatizes the access through the website, by making the
 corresponding POST request and cleaning the resulting xlsx file into
 tidy formats.
 
-## Citation
+## 🤝 Citation
 
 Please make sure to cite SIPRI when using their data with:
 
