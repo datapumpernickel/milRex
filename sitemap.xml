@@ -1,39 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://datapumpernickel.github.io/milRex/404.html</loc>
-  </url>
-  <url>
-    <loc>https://datapumpernickel.github.io/milRex/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://datapumpernickel.github.io/milRex/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://datapumpernickel.github.io/milRex/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://datapumpernickel.github.io/milRex/articles/milRex.html</loc>
-  </url>
-  <url>
-    <loc>https://datapumpernickel.github.io/milRex/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://datapumpernickel.github.io/milRex/index.html</loc>
-  </url>
-  <url>
-    <loc>https://datapumpernickel.github.io/milRex/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://datapumpernickel.github.io/milRex/reference/sipri_build_request.html</loc>
-  </url>
-  <url>
-    <loc>https://datapumpernickel.github.io/milRex/reference/sipri_get_data.html</loc>
-  </url>
-  <url>
-    <loc>https://datapumpernickel.github.io/milRex/reference/sipri_get_footnotes.html</loc>
-  </url>
-  <url>
-    <loc>https://datapumpernickel.github.io/milRex/reference/sipri_perform_request.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://datapumpernickel.github.io/milRex/404.html</loc></url>
+<url><loc>https://datapumpernickel.github.io/milRex/LICENSE-text.html</loc></url>
+<url><loc>https://datapumpernickel.github.io/milRex/LICENSE.html</loc></url>
+<url><loc>https://datapumpernickel.github.io/milRex/articles/index.html</loc></url>
+<url><loc>https://datapumpernickel.github.io/milRex/articles/milRex.html</loc></url>
+<url><loc>https://datapumpernickel.github.io/milRex/authors.html</loc></url>
+<url><loc>https://datapumpernickel.github.io/milRex/index.html</loc></url>
+<url><loc>https://datapumpernickel.github.io/milRex/reference/index.html</loc></url>
+<url><loc>https://datapumpernickel.github.io/milRex/reference/sipri_build_request.html</loc></url>
+<url><loc>https://datapumpernickel.github.io/milRex/reference/sipri_get_data.html</loc></url>
+<url><loc>https://datapumpernickel.github.io/milRex/reference/sipri_get_footnotes.html</loc></url>
+<url><loc>https://datapumpernickel.github.io/milRex/reference/sipri_perform_request.html</loc></url>
 </urlset>
+
