@@ -11,8 +11,18 @@
 <!-- badges: end -->
 
 The goal of milRex is to make it easy to query military expenditure data
-from the Stockholm International Peace Research Institute. They offer
-the most up-to date, openly available data on military expenditure.
+from the [Stockholm International Peace Research
+Institute](https://www.sipri.org/databases/milex). They offer the most
+up-to date, openly available data on military expenditure.
+
+## 🚧 Under construction 🚧
+
+- ⚠️ Please verify a few data points of downloaded data with the SIPRI
+  website to make sure that everything works, as this is currently under
+  construction.
+- ⚠️ Please cite SIPRI when using the data and read the Sources and
+  Methods section on their website concerning limitations linked below
+  ⬇️.
 
 ## Installation
 
@@ -85,7 +95,15 @@ merely automatizes the access through the website, by making the
 corresponding POST request and cleaning the resulting xlsx file into
 tidy formats.
 
+## Citation
+
 Please make sure to cite SIPRI when using their data with:
 
 *SIPRI Military Expenditure Database 2024,
 <https://www.sipri.org/databases/milex>*
+
+You can get a citation for the package with:
+
+``` r
+citation('milRex')
+```
