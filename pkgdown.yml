@@ -3,7 +3,7 @@ pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   milRex: milRex.html
-last_built: 2024-07-10T13:39Z
+last_built: 2024-07-10T13:59Z
 urls:
   reference: https://datapumpernickel.github.io/milRex/reference
   article: https://datapumpernickel.github.io/milRex/articles
