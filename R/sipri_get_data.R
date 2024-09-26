@@ -39,7 +39,7 @@ sipri_get_data <- function(indicator = "constantUSD",
     multiple = TRUE
   )
 
-  req <- sipri_build_request()
+  req <- sipri_build_request(verbose)
 
   if(cache){
     resp <- sipri_perform_request_cached(req)
