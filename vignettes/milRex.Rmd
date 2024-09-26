@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 # Getting Data 
 
-Querying the Military Expenditure Database by SIPRI can be done through their [website](https://milex.sipri.org/sipri), however, the resulting xlsx is rather tedious to parse because of some formatting choices taken by the team.
+Querying the Military Expenditure Database by SIPRI can be done through their [website](https://milex.sipri.org/sipri), however, the resulting `xlsx``` is rather tedious to parse because of some formatting choices taken by the team.
 
 Hence this function makes it easy to directly import this database to R and parse not only the different indicators, but also the associated footnotes. 
 
@@ -26,9 +26,14 @@ library(milRex)
 milex <- sipri_get_data(indicator = "constantUSD")
 ```
 
+
+
 ```{r, echo=F, warning=F, message=F}
 milex <- milRex:::milex
 ```
+
+
+
 
 
 The available indicators are: 
@@ -37,7 +42,7 @@ The available indicators are:
 library(dplyr)
 library(knitr)
 dplyr::tribble(
-  ~sheet_name, ~unit,~skip,~indicator,
+  ~`Sheet Name`, ~unit,~skip,~indicator,
   "Constant (2022) US$", 2, 5,'constantUSD',
   "Current US$", 2, 5,'currentUSD',
   "Share of GDP", 1, 5,'shareOfGDP',
@@ -57,17 +62,23 @@ dplyr::tribble(
 The package also comes with a pre-packaged data-frame that allows you to merge 
 SIPRIs regional coding to the data-frame. 
 
+We join the two dataframes by the country names, exclude values for 1991 where
+a total cannot be calculated because the Soviet Union is missing in the data
+and then sum the values acorss regions and years. 
+
 
 ```{r, message=F, warning=F}
 library(dplyr)
 library(lubridate)
 
 milex_regional <- milex |> 
-  left_join(milRex::sipri_regions) |> 
-  summarise(value = sum(value, na.rm = T), .by = c(region, year)) |> 
-  filter(year >= 1988)|> 
-  mutate(value = if_else(year == 1991, 0, value)) |> 
-  mutate(year = paste(year, "01-01") |> ymd()) 
+  dplyr::left_join(milRex::sipri_regions) |>  ## join data
+  dplyr::summarise(value = sum(value, na.rm = T), 
+                   .by = c(region, year)) |> ## sum up 
+  dplyr::filter(year >= 1988)|> ## exclude values pre-1988
+  dplyr::mutate(value = if_else(year == 1991, 0, value)) |> # exclude 1991
+  dplyr::mutate(year = paste(year, "01-01") |> 
+                  lubridate::ymd()) # format dates nicely 
 ```
 
 Now we can replicate a common graph used by SIPRI to show military spending by regions. 
@@ -75,8 +86,16 @@ Now we can replicate a common graph used by SIPRI to show military spending by r
 ```{r,warning=F, message=F,out.width="100%",dpi=300}
 library(ggplot2)
 
+ggplot2::ggplot(milex_regional) +
+  ggplot2::geom_col(ggplot2::aes(year, value/1000, 
+                                 fill = reorder(region, value)))
+```
+
+This looks rather ugly, we can easily approximate the styling by SIPRI: 
+
+```{r}
 ggplot(milex_regional) +
-  geom_col(aes(year, value/1000, fill = reorder(region, value)))+
+  geom_col(aes(year, value/1000, fill = reorder(region, value))) +
   labs(y = "Militarxy expenditure\n (constant 2022 USD billion)",
        caption = "1991 not present because no values for Soviet Union.\n See https://www.sipri.org/sites/default/files/2024-04/2404_fs_milex_2023.pdf", 
        fill = "Region",
@@ -105,5 +124,6 @@ ggplot(milex_regional) +
                       ))+
   scale_x_date(breaks = "4 years",date_labels = "%Y")
 ```
+
 
 
