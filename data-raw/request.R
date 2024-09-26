@@ -12,6 +12,18 @@ xlsx_config <- dplyr::tribble(
   "Local currency calendar years", 2, 6,'currencyCY',
   "Per capita", 2, 6,'perCapita')
 
+sipri_regions <- httr::GET("https://backend.sipri.org/api/p/countries/getfull") |>
+  httr::content("text") |>
+  jsonlite::fromJSON() |>
+  # dplyr::select(region = name, subRegions) |>
+  # tidyr::unnest(subRegions) |>
+  # dplyr::select(region, sub_region = name,Countries) |>
+  tidyr::unnest(Countries, names_repair = "unique") |>
+  dplyr::select(region = name...3, iso3c = isoAlpha3, country = name...19)
+
+
 usethis::use_data(xlsx_config,req_body, overwrite = TRUE, internal = TRUE)
+usethis::use_data(sipri_regions, overwrite = TRUE,
+                  internal = FALSE)
 
 
