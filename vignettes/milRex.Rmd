@@ -53,7 +53,7 @@ dplyr::tribble(
   "Per capita", 2, 6,'perCapita',
   "all of the above", 2, 6,'all'
   ) |> 
-  dplyr::select(sheet_name, indicator) |> 
+  dplyr::select(`Sheet Name`, indicator) |> 
   knitr::kable()
 ```
 
