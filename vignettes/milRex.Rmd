@@ -21,10 +21,15 @@ Querying the Military Expenditure Database by SIPRI can be done through their [w
 Hence this function makes it easy to directly import this database to R and parse not only the different indicators, but also the associated footnotes. 
 
 The following code is all you need to query data from their website. 
-```{r querying,  message=F, warning=F}
+```{r querying,  message=F, warning=F, eval = F}
 library(milRex)
 milex <- sipri_get_data(indicator = "constantUSD")
 ```
+
+```{r, echo=F, warning=F, message=F}
+milex <- milRex:::milex
+```
+
 
 The available indicators are: 
 

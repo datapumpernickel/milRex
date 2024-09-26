@@ -21,8 +21,10 @@ sipri_regions <- httr::GET("https://backend.sipri.org/api/p/countries/getfull") 
   tidyr::unnest(Countries, names_repair = "unique") |>
   dplyr::select(region = name...3, iso3c = isoAlpha3, country = name...19)
 
+## vignette dataset 1
+milex <- sipri_get_data(indicator = "constantUSD")
 
-usethis::use_data(xlsx_config,req_body, overwrite = TRUE, internal = TRUE)
+usethis::use_data(xlsx_config,req_body,milex, overwrite = TRUE, internal = TRUE)
 usethis::use_data(sipri_regions, overwrite = TRUE,
                   internal = FALSE)
 
