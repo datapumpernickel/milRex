@@ -54,7 +54,8 @@ SIPRIs regional coding to the data-frame.
 
 
 ```{r, message=F, warning=F}
-library(tidyverse)
+library(dplyr)
+library(lubridate)
 
 milex_regional <- milex |> 
   left_join(milRex::sipri_regions) |> 
