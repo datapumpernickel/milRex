@@ -62,8 +62,8 @@
 </h2>
 <p>Querying the Military Expenditure Database by SIPRI can be done
 through their <a href="https://milex.sipri.org/sipri" class="external-link">website</a>,
-however, the resulting `xlsx``` is rather tedious to parse because of
-some formatting choices taken by the team.</p>
+however, the resulting <code>xlsx</code> is rather tedious to parse
+because of some formatting choices taken by the team.</p>
 <p>Hence this function makes it easy to directly import this database to
 R and parse not only the different indicators, but also the associated
 footnotes.</p>
@@ -147,7 +147,7 @@ spending by regions.</p>
 <span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">milex_regional</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">value</span><span class="op">/</span><span class="fl">1000</span>, </span>
 <span>                                 fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">region</span>, <span class="va">value</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="milRex_files/figure-html/unnamed-chunk-4-1.png" width="100%"></p>
+<p><img src="milRex_files/figure-html/ugly_plot-1.png" width="100%"></p>
 <p>This looks rather ugly, we can easily approximate the styling by
 SIPRI:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -180,7 +180,7 @@ SIPRI:</p>
 <span>                        <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">100</span>,<span class="fl">156</span>,<span class="fl">136</span>, maxColorValue <span class="op">=</span> <span class="fl">255</span><span class="op">)</span></span>
 <span>                      <span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html" class="external-link">scale_x_date</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="st">"4 years"</span>,date_labels <span class="op">=</span> <span class="st">"%Y"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="milRex_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<p><img src="milRex_files/figure-html/nicer_plot%20-1.png" width="100%"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
