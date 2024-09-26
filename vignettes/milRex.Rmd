@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 # Getting Data 
 
-Querying the Military Expenditure Database by SIPRI can be done through their [website](https://milex.sipri.org/sipri), however, the resulting `xlsx``` is rather tedious to parse because of some formatting choices taken by the team.
+Querying the Military Expenditure Database by SIPRI can be done through their [website](https://milex.sipri.org/sipri), however, the resulting `xlsx` is rather tedious to parse because of some formatting choices taken by the team.
 
 Hence this function makes it easy to directly import this database to R and parse not only the different indicators, but also the associated footnotes. 
 
