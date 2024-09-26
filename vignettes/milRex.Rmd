@@ -83,7 +83,7 @@ milex_regional <- milex |>
 
 Now we can replicate a common graph used by SIPRI to show military spending by regions. 
 
-```{r,warning=F, message=F,out.width="100%",dpi=300}
+```{r ugly_plot,warning=F, message=F,out.width="100%",dpi=300}
 library(ggplot2)
 
 ggplot2::ggplot(milex_regional) +
@@ -93,7 +93,7 @@ ggplot2::ggplot(milex_regional) +
 
 This looks rather ugly, we can easily approximate the styling by SIPRI: 
 
-```{r}
+```{r nicer_plot ,warning=F, message=F,out.width="100%",dpi=300}
 ggplot(milex_regional) +
   geom_col(aes(year, value/1000, fill = reorder(region, value))) +
   labs(y = "Militarxy expenditure\n (constant 2022 USD billion)",
