@@ -89,11 +89,11 @@ ggplot(milex_regional) +
         legend.background = element_rect(fill = rgb(215, 229, 221, 
                                                   maxColorValue = 255)),
         legend.position = "top",
-        legend.text = element_text(size = 4),
-        legend.title = element_text(size = 4,face  = "bold"),
+        legend.text = element_text(size = 6),
+        legend.title = element_text(size = 6,face  = "bold"),
         panel.border = element_blank(),
         axis.line.x = element_line(),
-        text = element_text(size = 7),
+        text = element_text(size = 9),
         legend.key.size = unit(0.05, 'in'))+
   scale_fill_manual(values = 
                       c(
