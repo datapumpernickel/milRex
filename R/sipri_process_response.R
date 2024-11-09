@@ -35,9 +35,12 @@ sipri_process_response <- function(resp, footnotes, indicator,verbose){
         file_path = file_path,
         footnotes = footnotes,
         .progress = verbose
-      ) |>
+      )|>
+        dplyr::left_join(sipri_regions |>
+                           dplyr::select(iso3c, country)) |>
         dplyr::select(dplyr::any_of(c("sheet",
                                "country",
+                               "iso3c",
                                "region",
                                "year",
                                "value",

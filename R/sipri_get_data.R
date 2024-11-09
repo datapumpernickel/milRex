@@ -1,12 +1,34 @@
-
-#' Get data from SIPRI Milex database
+#' Get data from SIPRI Military Expenditure (Milex) Database
 #'
-#' @param indicator The type of data to download.
-#' @param verbose Whether to be verbose.
-#' @param footnotes Whether to join footnotes to the results table.
-#' @param cache Whether to cache response from SIPRI and processed data.
+#' The `sipri_get_data` function retrieves military expenditure data from the
+#' SIPRI Milex database. It provides multiple indicators including constant USD,
+#' current USD, share of GDP, and more. You can also join footnotes to the
+#' results and enable caching for faster queries.
 #'
-#' @return A tibble.
+#' @param indicator Character vector. The type of data to download. Must be one of:
+#'   "constantUSD", "currentUSD", "shareOfGDP", "shareGovt", "regionalTotals",
+#'   "currencyFY", "currencyCY", "perCapita", or "all".
+#'   Default is "constantUSD".
+#' @param verbose Logical. If TRUE, prints additional details about the query
+#' process. Default is FALSE.
+#' @param footnotes Logical. If TRUE, joins footnotes to the result table.
+#' Default is FALSE.
+#' @param cache Logical. If TRUE, caches the response and processed
+#' data to avoid re-querying. Default is TRUE.
+#'
+#' @return A tibble containing the requested data.
+#'
+#' @examples
+#' \dontrun{
+#' # Retrieve military expenditure data in constant 2022 USD
+#' milex_data <- sipri_get_data(indicator = "constantUSD",
+#'     verbose = TRUE,
+#'     footnotes = TRUE)
+#'
+#' # Retrieve regional totals without caching
+#' regional_totals <- sipri_get_data(indicator = "regionalTotals", cache = FALSE)
+#' }
+#'
 #' @export
 sipri_get_data <- function(indicator = "constantUSD",
                         verbose = FALSE,

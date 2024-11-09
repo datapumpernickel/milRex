@@ -27,14 +27,12 @@ milex <- sipri_get_data(indicator = "constantUSD")
 ```
 
 
-
 ```{r, echo=F, warning=F, message=F}
 milex <- milRex:::milex
 ```
 
 
-
-
+<center>
 
 The available indicators are: 
 
@@ -42,7 +40,7 @@ The available indicators are:
 library(dplyr)
 library(knitr)
 dplyr::tribble(
-  ~`Sheet Name`, ~unit,~skip,~indicator,
+  ~Description, ~unit,~skip,~indicator,
   "Constant (2022) US$", 2, 5,'constantUSD',
   "Current US$", 2, 5,'currentUSD',
   "Share of GDP", 1, 5,'shareOfGDP',
@@ -53,9 +51,11 @@ dplyr::tribble(
   "Per capita", 2, 6,'perCapita',
   "all of the above", 2, 6,'all'
   ) |> 
-  dplyr::select(`Sheet Name`, indicator) |> 
+  dplyr::select(Description, indicator) |> 
   knitr::kable()
 ```
+</center>
+
 
 # Aggregating data by regions
 
@@ -81,6 +81,8 @@ milex_regional <- milex |>
                   lubridate::ymd()) # format dates nicely 
 ```
 
+# Plotting the data
+
 Now we can replicate a common graph used by SIPRI to show military spending by regions. 
 
 ```{r ugly_plot,warning=F, message=F,out.width="100%",dpi=300}
@@ -91,7 +93,7 @@ ggplot2::ggplot(milex_regional) +
                                  fill = reorder(region, value)))
 ```
 
-This looks rather ugly, we can easily approximate the styling by SIPRI: 
+This looks rather ugly, but we can approximate the styling of SIPRI, as in the plot [here](https://www.sipri.org/sites/default/files/2024-04/2404_fs_milex_2023.pdf): 
 
 ```{r nicer_plot ,warning=F, message=F,out.width="100%",dpi=300}
 ggplot(milex_regional) +
@@ -124,6 +126,3 @@ ggplot(milex_regional) +
                       ))+
   scale_x_date(breaks = "4 years",date_labels = "%Y")
 ```
-
-
-
