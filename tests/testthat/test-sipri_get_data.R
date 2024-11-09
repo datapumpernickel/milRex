@@ -5,7 +5,7 @@ httptest2::with_mock_dir("test_data", simplify = F, {
                                                        verbose = TRUE))
     testthat::expect_true(all(
       names(resp) %in% c("sheet",
-                         "country",
+                         "country","iso3c",
                          "year", "value",
                          "missing")
     ))
@@ -20,7 +20,7 @@ httptest2::with_mock_dir("test_data", simplify = F, {
     )
     testthat::expect_true(all(
       names(resp) %in% c("sheet",
-                         "country",
+                         "country","iso3c",
                          "year", "value",
                          "missing", "footnote")
     ))
@@ -44,6 +44,7 @@ httptest2::with_mock_dir("test_data", simplify = F, {
   })
   testthat::test_that("We can get the expected column names", {
     for (indicator in xlsx_config$indicator) {
+      print(indicator)
       resp <- milRex::sipri_get_data(indicator = indicator,
                                      verbose = TRUE)
       testthat::expect_true(all(c("sheet",

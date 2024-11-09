@@ -1,6 +1,9 @@
 
 sipri_process_response <- function(resp, footnotes, indicator,verbose){
   .env <- NULL
+  iso3c <- country <- NULL
+
+  sipri_regions <- milRex::sipri_regions
   content <- resp |>
     httr2::resp_body_json() |>
     purrr::pluck('Value')
@@ -29,23 +32,42 @@ sipri_process_response <- function(resp, footnotes, indicator,verbose){
 
   suppressWarnings({
     suppressMessages({
-      data <- purrr::pmap_dfr(
-        data_to_be_extracted,
-        sipri_process_xlsx,
-        file_path = file_path,
-        footnotes = footnotes,
-        .progress = verbose
-      )|>
-        dplyr::left_join(sipri_regions |>
-                           dplyr::select(iso3c, country)) |>
-        dplyr::select(dplyr::any_of(c("sheet",
-                               "country",
-                               "iso3c",
-                               "region",
-                               "year",
-                               "value",
-                               "missing",
-                               "footnote")))
+      if(!indicator =="regionalTotals"){
+        data <- purrr::pmap_dfr(
+          data_to_be_extracted,
+          sipri_process_xlsx,
+          file_path = file_path,
+          footnotes = footnotes,
+          .progress = verbose
+        )|>
+          dplyr::left_join(sipri_regions |>
+                             dplyr::select(iso3c, country)) |>
+          dplyr::select(dplyr::any_of(c("sheet",
+                                        "country",
+                                        "iso3c",
+                                        "region",
+                                        "year",
+                                        "value",
+                                        "missing",
+                                        "footnote")))
+      } else {
+        data <- purrr::pmap_dfr(
+          data_to_be_extracted,
+          sipri_process_xlsx,
+          file_path = file_path,
+          footnotes = footnotes,
+          .progress = verbose
+        )|>
+          dplyr::select(dplyr::any_of(c("sheet",
+                                        "country",
+                                        "iso3c",
+                                        "region",
+                                        "year",
+                                        "value",
+                                        "missing",
+                                        "footnote")))
+      }
+
     })
   })
 
