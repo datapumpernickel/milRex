@@ -1,6 +1,6 @@
 Package: milRex
 Title: Query Military Expenditure Data From SIPRI
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: 
     person("Paul", "Bochtler", 
               email = "paulbochtler.gh@gmail.com", 
